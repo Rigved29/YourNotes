@@ -11,9 +11,7 @@ function App() {
 
 const [uniqueId,setUniqueId] = useState("");
 
-const [v] = useContext(quoteContext.Quotes);
-  
-
+console.log(useContext(quoteContext));
 //  const Dummy_Quotes = [
 //     {id:"q1",author:"Max",text:"Learning React is Fun"},
 //     {id:"q2",author:"maximillian",text:"learning React is fun"},
