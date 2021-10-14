@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.m{
+  margin-bottom: 20px;
+}
+
 .loading {
   position: absolute;
   width: 100%;
@@ -42,4 +46,8 @@
 
 .actions button {
   font-size: 1.25rem;
+}
+
+label{
+  width: max-content;
 }

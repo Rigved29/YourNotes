@@ -70,7 +70,7 @@ const QuoteForm = (props) => {
         )}
 
         <div className={classes.control}>
-          <label htmlFor='author'>Author</label>
+          <label htmlFor='author'>Topic</label>
           <input type='text' id='author' ref={authorInputRef} />
         </div>
         <div className={classes.control}>
@@ -78,7 +78,7 @@ const QuoteForm = (props) => {
           <textarea id='text' rows='5' ref={textInputRef}></textarea>
         </div>
         <div className={classes.actions}>
-          <button onClick={removeFocusHandler} className='btn'> Add Quote</button>
+          <button onClick={removeFocusHandler} className='btn'> Add Note</button>
         </div>
       </form>
     </Card>

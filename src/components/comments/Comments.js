@@ -3,23 +3,22 @@ import { useState } from 'react';
 import classes from './Comments.module.css';
 import NewCommentForm from './NewCommentForm';
 
-const Comments = () => {
+const Comments = (props) => {
   const [isAddingComment, setIsAddingComment] = useState(false);
-
+ console.log(props.uID);
   const startAddCommentHandler = () => {
     setIsAddingComment(true);
   };
   
   return (
     <section className={classes.comments}>
-      <h2>User Comments</h2>
       {!isAddingComment && (
         <button className='btn' onClick={startAddCommentHandler}>
-          Add a Comment
+          Edit
         </button>
       )}
-      {isAddingComment && <NewCommentForm />}
-      <p>Comments...</p>
+      {isAddingComment && <NewCommentForm text={props.text} author={props.author} uID={props.uID}/>}
+   
     </section>
   );
 };

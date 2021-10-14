@@ -8,6 +8,23 @@
   padding-bottom: 1rem;
   border-bottom: 3px solid #b2d4d4;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search{
+  font: inherit;
+  color: teal;
+  border: 1px solid teal;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+}
+
+input:focus{
+  color: teal;
+  border: none;
+  background-color: white;
 }
 
 .sorting button {

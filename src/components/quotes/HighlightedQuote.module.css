@@ -9,12 +9,12 @@
 }
 
 .quote p {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .quote figcaption {
-  font-style: italic;
+  font-style: normal;
   font-size: 1.5rem;
-  text-align: right;
+  text-align: center;
   color: #a1e0e0;
 }

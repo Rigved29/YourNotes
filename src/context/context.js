@@ -3,10 +3,10 @@ import {useState} from "react";
 
 export const quoteContext = React.createContext();
 
-const Dummy_Quotes= [
-  {id:1,author:"Max",text:"Learning React is Fun",date: new Date('July 20, 2020')},
-  {id:2,author:"maximillian",text:"learning React is fun",date: new Date('July 22, 2020')},
-];
+const Dummy_Quotes= [];
+
+// {id:1,author:"Max",text:"Learning React is Fun",date: new Date('July 20, 2020')},
+// {id:2,author:"maximillian",text:"learning React is fun",date: new Date('July 22, 2020')},
 
 
 export const CounterContextProvider = props =>{

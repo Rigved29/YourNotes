@@ -47,13 +47,19 @@ const  sortedQuotes = sortQuotes(props.quotes,isAscending);
 
   }
 
+  const searchTopicsHandler = (e) =>{
+    console.log(e.target.value);
+  }
+
   
 
   return (
     <Fragment>
       <div className={classes.sorting}>
         <button onClick={changeSortingHandler}>sort {isAscending? "Latest":"old"}</button>
+        <input type="text" placeholder="Search Topics.." className={classes.search} onChange={searchTopicsHandler}/>
       </div>
+      
       <ul className={classes.list}>
         {sortedQuotes.map((quote) => (
           <QuoteItem

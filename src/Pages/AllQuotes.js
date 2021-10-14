@@ -31,8 +31,8 @@ const AllQuotes = ()=>{
                 
                 console.log(data,dataArr , "data,dataArr");
             let arr;
-
-               arr = [...(ctxQ.Quotes),...dataArr];       
+// ...(ctxQ.Quotes),
+               arr = [...dataArr];       
             
                console.log(arr,"arr");
                console.log(dataArr,"dataArr");

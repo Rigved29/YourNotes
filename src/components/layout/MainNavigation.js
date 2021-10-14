@@ -5,12 +5,13 @@ const Naviagtion = ()=>{
   return(
      <header className={styles.header}>
          <div className={styles.logo}>
-         Great Quotes
+         Your Notes
          </div>
+        
          <nav className={styles.nav}>
              <ul>
-                 <li><NavLink to="/quotes" activeClassName={styles.active}>All Quotes</NavLink></li>
-                 <li><NavLink to="/new-quote" activeClassName={styles.active}>Add a Quote</NavLink></li>
+                 <li><NavLink to="/quotes" activeClassName={styles.active}>All Notes</NavLink></li>
+                 <li><NavLink to="/new-quote" activeClassName={styles.active}>Add a New Note</NavLink></li>
              </ul>
          </nav>
      </header>

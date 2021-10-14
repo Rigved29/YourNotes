@@ -12,7 +12,7 @@ const NewQuotes = (props)=>{
 
     const history = useHistory();
 
-    const postdata = async(d)=>{
+    const postdata = async(d,uId)=>{
         const response = await fetch("https://react-router-eb1ed-default-rtdb.firebaseio.com/quotes.json",{
             method:"POST",
             body:JSON.stringify(d),
@@ -21,13 +21,13 @@ const NewQuotes = (props)=>{
 
         console.log(data);
 
-        props.sndUniqueData(data);
+        props.sndUniqueData(data,uId);
     }
 
     const addQuoteHandler = (quoteData) =>{
 
         console.log(quoteData);
-        postdata(quoteData);
+        postdata(quoteData,quoteData.id);
 
         history.push("/quotes");
     }

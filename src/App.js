@@ -4,23 +4,24 @@ import NewQuotes from "./Pages/NewQuote";
 import QuotesDetail from "./Pages/QuoteDetail";
 import Layout from "./components/layout/Layout";
 import NotFound from "./Pages/NotFound";
-import {CounterContextProvider,quoteContext} from "./context/context";
-import { useContext, useState } from "react";
+import {CounterContextProvider} from "./context/context";
+import { useState } from "react";
 
 function App() {
 
-const [uniqueId,setUniqueId] = useState("");
+// const [uniqueIdArr,setUniqueIdArr] = useState({});
 
-console.log(useContext(quoteContext));
 //  const Dummy_Quotes = [
 //     {id:"q1",author:"Max",text:"Learning React is Fun"},
 //     {id:"q2",author:"maximillian",text:"learning React is fun"},
 //   ]
 
-const getUniqueData = (d) =>{
-   console.log(d,"aageya kya");
-   setUniqueId(d);
-  localStorage.setItem("2",d.name);
+const getUniqueData = (d,id) =>{
+   console.log(d,id,"aageya kya");
+   // setUniqueIdArr(prevState=>{
+   //    return [...prevState,id];
+   // });
+  localStorage.setItem(id,d.name);
 }
 console.log(typeof uniqueId);
 
@@ -37,7 +38,7 @@ console.log(typeof uniqueId);
          <AllQuotes/>
       </Route>
       <Route path="/quotes/:quoteId">
-         <QuotesDetail uId={uniqueId} />
+         <QuotesDetail/>
       </Route>
       <Route path="/new-quote">
          <NewQuotes sndUniqueData={getUniqueData}/>
