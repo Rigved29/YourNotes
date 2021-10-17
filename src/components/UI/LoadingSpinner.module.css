@@ -6,13 +6,15 @@
 .spinner:after {
   content: ' ';
   display: block;
+  position: absolute;
   width: 64px;
   height: 64px;
-  margin: 8px;
   border-radius: 50%;
-  border: 6px solid teal;
-  border-color: teal transparent teal transparent;
+  border: 6px solid #681b04;
+  border-color: #681b04 transparent #681b04 transparent;
   animation: spinner 1.2s linear infinite;
+
+  
 }
 @keyframes spinner {
   0% {
@@ -20,5 +22,26 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width:700px){
+  .spinner:after {
+    margin-inline:35% ;
+    margin-block:40%;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .spinner:after {
+    margin-inline:35%;
+    margin-block:30%;
+  }
+}
+
+@media screen and (min-width:1000px){
+  .spinner:after {
+    margin-inline:20%;
+    margin-block:10%;
   }
 }

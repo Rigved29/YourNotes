@@ -2,35 +2,43 @@
   list-style: none;
   margin: 0;
   padding: 0;
+ 
 }
 
 .sorting {
   padding-bottom: 1rem;
-  border-bottom: 3px solid #b2d4d4;
+  border-bottom: 3px solid #683939;
   margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
+  margin-top: 150px;
 }
 
 .search{
   font: inherit;
-  color: teal;
-  border: 1px solid teal;
-  background-color: transparent;
+  color: #681b04;
+  border: 1px solid #681b04 ;
+  background-color: white;
   border-radius: 4px;
   padding: 0.5rem 1.5rem;
+ 
+
+}
+.search:focus{
+  outline: #681b04 solid 2px;
+  background-color: transparent;
 }
 
 input:focus{
-  color: teal;
+  color: #681b04;
   border: none;
   background-color: white;
 }
 
 .sorting button {
   font: inherit;
-  color: teal;
-  border: 1px solid teal;
+  color: #681b04;
+  border: 1px solid #681b04;
   background-color: transparent;
   border-radius: 4px;
   padding: 0.5rem 1.5rem;
@@ -38,5 +46,46 @@ input:focus{
 }
 
 .sorting button:hover {
-  background-color: #c2fafa;
+  background-color: #f1d2d2;
+}
+
+
+@media screen and (max-width:390px) {
+ 
+  .sorting {
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #683939;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .search{
+    font: inherit;
+    color: #681b04;
+    border: 1px solid #681b04 ;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    width: 50%;
+  
+  }
+
+  .sorting button {
+    padding: 0.4rem 0.75rem;
+  }
+
+}
+
+@media screen and (max-width:600px) {
+
+  .search{
+    margin-top: 20px;
+  }
+
+  .sorting button {
+    padding: 0.4rem 0.75rem;
+    margin-top: 20px;
+  }
+
 }

@@ -6,12 +6,6 @@ import {useEffect, useContext,useState} from "react";
 import { useHistory } from 'react-router-dom';
 
 
-// const Dummy_Quotes = [
-//   {id:1,author:"Max",text:"Learning React is Fun"},
-//   {id:2,author:"maximillian",text:"learning React is fun"},
-// ]
-
-
 const QuotesDetail = (props)=>{
 const [ctxQ] = useContext(quoteContext);
 console.log(props.uId);
@@ -79,13 +73,6 @@ const deleteNoteHandler =()=>{
   deleteNote()
 }
 
-{/* <Switch>
-<Route path="/quotes/:quoteId" exact>
-<Redirect to="/quotes"/>
-</Route>
-</Switch> */}
-
-
 if(!quote){
   return <h2>No quote Found</h2>
 }
@@ -101,12 +88,8 @@ console.log(q);
          <Link to={`${match.url}/comments`} className="btn--flat">Edit Your Note</Link>
          </div>
 
-         {/* <div className="right">
-         <Link to={`/new-quote`} className="btn--flat">Edit</Link>
-         </div> */}
 
          </Route>
-         
          
           <Route path={`${match.path}/comments`}>
                 <Comments text={quote.text} author={quote.author} uID={uniqueID}/>

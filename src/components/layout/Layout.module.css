@@ -3,3 +3,13 @@
   width: 90%;
   max-width: 40rem;
 }
+
+
+
+@media screen and (max-width:400px) {
+  .main {
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 40rem;
+  }
+}

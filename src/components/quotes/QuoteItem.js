@@ -8,13 +8,12 @@ const QuoteItem = (props) => {
   return (
     <li className={classes.item}>
       <figure>
-        {/* <p>{new Date(quoteDate).toLocaleDateString()}</p> */}
         <blockquote>
           <p>{props.author}</p>
         </blockquote>
         <figcaption>{new Date(quoteDate).toLocaleDateString()}</figcaption>
       </figure>
-      <Link to={`/quotes/${props.id}`} className='btn'>
+      <Link to={`/quotes/${props.id}`} className={classes.btns}>
         View Fullscreen
       </Link>
     </li>

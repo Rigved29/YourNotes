@@ -1,11 +1,12 @@
 .quote {
-  background-color: #162b2b;
+  background-color: #351a18;
   color: white;
   border-radius: 6px;
   padding: 3rem;
   margin: 3rem auto;
   width: 90%;
   max-width: 40rem;
+  margin-top: 150px;
 }
 
 .quote p {
@@ -16,5 +17,33 @@
   font-style: normal;
   font-size: 1.5rem;
   text-align: center;
-  color: #a1e0e0;
+  color: #f1d2d2;
+}
+
+@media screen and (max-width:500px) {
+
+  .quote{
+    margin-top: 5rem;
+  }
+  .quote p {
+    font-size: 0.8rem;
+  }
+  .quote figcaption {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width:400px) {
+
+  .quote{
+    margin-top: 5rem;
+    padding: 3rem 1.5rem;
+    
+  }
+  .quote p {
+    font-size: 0.8rem;
+  }
+  .quote figcaption {
+    font-size: 1rem;
+  }
 }

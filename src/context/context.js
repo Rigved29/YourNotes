@@ -24,7 +24,7 @@ export const CounterContextProvider = props =>{
   
   return (
     <quoteContext.Provider value={[q,changeState,initial,setInitial]}>
-      {props.children};
+      {props.children}
     </quoteContext.Provider>
   );
 };

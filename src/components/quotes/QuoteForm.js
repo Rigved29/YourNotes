@@ -86,6 +86,6 @@ const QuoteForm = (props) => {
   </Fragment>
    
   );
-};
+}
 
 export default QuoteForm;

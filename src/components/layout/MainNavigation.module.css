@@ -1,37 +1,140 @@
 .header {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+}
+
+.cnt{
   width: 100%;
   height: 5rem;
   display: flex;
   padding: 0 10%;
   justify-content: space-between;
   align-items: center;
-  background-color: #008080;
+  background-color: #681b04;
+  position: fixed;
+  top: 0;
 }
 
 .logo {
   font-size: 2rem;
   color: white;
 }
-
-.nav ul {
+/* .nav{
+  padding: 0 10%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #681b04;
+} */
+.nav1 ul,.nav ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-.nav li {
+.nav1 li ,.nav li {
   margin-left: 1.5rem;
   font-size: 1.25rem;
 }
 
-.nav a {
+.nav li{
+  width: 80%;
+  border-bottom: 2px solid white;
+  margin-bottom: 3px;
+}
+
+.nav1 a ,.nav a {
   text-decoration: none;
-  color: #88dfdf;
+  color: #f3caca;
 }
 
 .nav a:hover,
 .nav a:active,
 .nav a.active {
   color: #e6fcfc;
+}
+
+.nav1 a:hover,
+.nav1 a:active,
+.nav1 a.active {
+  color: #e6fcfc;
+}
+
+.hamburger{
+  height: 33px;
+  width: 45px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 8px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger>div{
+  width:30px;
+  height: 4px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  margin-inline: 2px;
+  background-color: white;
+  border-radius: 5px;
+}
+.nav1{
+  display: grid;
+  width: 550px;
+}
+
+@media screen and (max-width:600px) {
+  .nav{
+    display: grid;
+    background-color:#681b04 ;
+    transition: ease-in-out 3ms;
+  }
+  .nav1{
+    display: none;
+  }
+
+  .nav ul {
+    list-style: none;
+    display: grid;
+    margin: 0;
+    padding-top:20px;
+  }
+
+  .nav li{
+    padding-block: 2px;
+  }
+
+  .hamburger{
+    display: grid;
+  }
+
+  .cnt{
+    width: 100%;
+    height: 5rem;
+    display: grid;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #681b04;
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .header{
+    width: 100%;
+    padding: 0 10%;
+    margin-top:20px
+  }
+}
+
+
+@media screen and (max-width:350px) {
+  .logo {
+    font-size: 1.25rem;
+    color: white;
+  }
 }

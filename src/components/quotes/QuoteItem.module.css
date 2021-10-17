@@ -6,7 +6,7 @@
   align-items: flex-end;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  background-color: #c2e7f0;
+  background-color: #f7e0e0;
 }
 
 .item:last-of-type {
@@ -34,4 +34,73 @@
 .item figcaption {
   font-style: italic;
   color: #566d6d;
+}
+
+.btns {
+  text-decoration: none;
+  background-color: #681b04;
+  color: white;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #681b04;
+  cursor: pointer;
+}
+
+.btns:hover,
+.btns:active {
+  background-color: #681b04;
+  border-color: #681b04;
+}
+
+.btns--flat {
+  cursor: pointer;
+  font: inherit;
+  color: #681b04;
+  border: none;
+  background-color: none;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.btns--flat:hover,
+.btns--flat:active {
+  background-color: #681b04;
+  color: white;
+}
+
+@media screen and (max-width:450px) {
+
+  .btns{
+    padding: 0.5rem 1rem ;
+  }
+  .item figcaption {
+    font-style: italic;
+    color: #566d6d;
+  }
+  .item blockquote {
+    margin: 0;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #212929;
+  }
+}
+
+@media screen and (max-width:350px) {
+
+  .btns{
+    padding: 0.4rem 0.4rem ;
+    font-size: 0.6rem;
+  }
+  .item figcaption {
+    font-style: italic;
+    color: #566d6d;
+    font-size: small;
+  }
+  .item blockquote {
+    margin: 0;
+    text-align: left;
+    font-size: 1rem;
+    color: #212929;
+  }
 }

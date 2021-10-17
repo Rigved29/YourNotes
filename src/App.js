@@ -5,22 +5,13 @@ import QuotesDetail from "./Pages/QuoteDetail";
 import Layout from "./components/layout/Layout";
 import NotFound from "./Pages/NotFound";
 import {CounterContextProvider} from "./context/context";
-import { useState } from "react";
 
 function App() {
 
-// const [uniqueIdArr,setUniqueIdArr] = useState({});
-
-//  const Dummy_Quotes = [
-//     {id:"q1",author:"Max",text:"Learning React is Fun"},
-//     {id:"q2",author:"maximillian",text:"learning React is fun"},
-//   ]
 
 const getUniqueData = (d,id) =>{
    console.log(d,id,"aageya kya");
-   // setUniqueIdArr(prevState=>{
-   //    return [...prevState,id];
-   // });
+ 
   localStorage.setItem(id,d.name);
 }
 console.log(typeof uniqueId);
@@ -47,15 +38,15 @@ console.log(typeof uniqueId);
          <NotFound/>   {/* Not found page should always come in last of Switch  */}
       </Route>
   </Switch>
-
-</CounterContextProvider>
   
+</CounterContextProvider>
+
 </Layout>
     
 
   
     
-  );
+  )
 }
 
 export default App;

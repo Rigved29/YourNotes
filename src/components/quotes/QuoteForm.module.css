@@ -1,5 +1,6 @@
 .form {
   position: relative;
+  
 }
 
 .loading {
@@ -36,8 +37,8 @@
 
 .control input:focus,
 .control textarea:focus {
-  background-color: #cbf8f8;
-  outline-color: teal;
+  background-color: #f7e7e7;
+  outline-color: #681b04;
 }
 
 .actions {
@@ -46,4 +47,10 @@
 
 .actions button {
   font-size: 1.25rem;
+}
+
+@media screen and (max-width:400px) {
+  .actions button {
+    font-size: 0.75rem;
+  }
 }
