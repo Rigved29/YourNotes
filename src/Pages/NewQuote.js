@@ -2,7 +2,6 @@ import QuoteForm from "../components/quotes/QuoteForm";
 import { useHistory } from 'react-router-dom';
 import {quoteContext} from "../context/context";
 import { useContext } from "react";
-// import useHttp from "../customhooks/usehttp";
 
 const NewQuotes = (props)=>{
 
