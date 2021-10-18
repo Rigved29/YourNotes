@@ -14,6 +14,7 @@
   background-color: #681b04;
   position: fixed;
   top: 0;
+  z-index: 90;
 }
 
 .logo {

@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/NotePad/static/css/main.874d9e55.chunk.css",
+    "main.js": "/NotePad/static/js/main.9180d3ea.chunk.js",
+    "main.js.map": "/NotePad/static/js/main.9180d3ea.chunk.js.map",
+    "runtime-main.js": "/NotePad/static/js/runtime-main.4f0fd39b.js",
+    "runtime-main.js.map": "/NotePad/static/js/runtime-main.4f0fd39b.js.map",
+    "static/js/2.2f4f9092.chunk.js": "/NotePad/static/js/2.2f4f9092.chunk.js",
+    "static/js/2.2f4f9092.chunk.js.map": "/NotePad/static/js/2.2f4f9092.chunk.js.map",
+    "index.html": "/NotePad/index.html",
+    "static/css/main.874d9e55.chunk.css.map": "/NotePad/static/css/main.874d9e55.chunk.css.map",
+    "static/js/2.2f4f9092.chunk.js.LICENSE.txt": "/NotePad/static/js/2.2f4f9092.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f0fd39b.js",
+    "static/js/2.2f4f9092.chunk.js",
+    "static/css/main.874d9e55.chunk.css",
+    "static/js/main.9180d3ea.chunk.js"
+  ]
+}
