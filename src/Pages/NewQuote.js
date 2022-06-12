@@ -1,38 +1,43 @@
 import QuoteForm from "../components/quotes/QuoteForm";
-import { useHistory } from 'react-router-dom';
-import {quoteContext} from "../context/context";
+import { useHistory } from "react-router-dom";
+import { quoteContext } from "../context/context";
 import { useContext } from "react";
 
-const NewQuotes = (props)=>{
+const NewQuotes = (props) => {
+  const [ctxQ] = useContext(quoteContext);
 
- const [ctxQ] = useContext(quoteContext);
+  console.log(ctxQ, "dekho");
 
- console.log(ctxQ,"dekho");
+  const history = useHistory();
+  //https://react-router-eb1ed-default-rtdb.firebaseio.com/quotes.json
+  const postdata = async (d, uId) => {
+    try {
+      const response = await fetch("http://localhost:8000/addpost", {
+        method: "POST",
+        body: JSON.stringify(d),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const data = await response.json();
 
-    const history = useHistory();
+      console.log(data);
 
-    const postdata = async(d,uId)=>{
-        const response = await fetch("https://react-router-eb1ed-default-rtdb.firebaseio.com/quotes.json",{
-            method:"POST",
-            body:JSON.stringify(d),
-        });
-        const data = await response.json();
-
-        console.log(data);
-
-        props.sndUniqueData(data,uId);
+      props.sndUniqueData(data, uId);
+    } catch (err) {
+      console.log(new Error(err));
     }
+  };
 
-    const addQuoteHandler = (quoteData) =>{
+  const addQuoteHandler = (quoteData) => {
+    console.log(quoteData);
+    postdata(quoteData, quoteData.id);
+    console.log("sent");
 
-        console.log(quoteData);
-        postdata(quoteData,quoteData.id);
+    history.push("/quotes");
+  };
 
-        history.push("/quotes");
-    }
-
-
-    return <QuoteForm onAddQuote={addQuoteHandler} />
-}
+  return <QuoteForm onAddQuote={addQuoteHandler} />;
+};
 
 export default NewQuotes;
