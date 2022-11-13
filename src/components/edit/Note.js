@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import classes from "./Comments.module.css";
-import NewCommentForm from "./NewCommentForm";
+import classes from "./Note.module.css";
+import EditNoteForm from "./EditNoteForm";
 
-const Comments = (props) => {
+const EditNote = (props) => {
   const [isAddingComment, setIsAddingComment] = useState(false);
   console.log(props.uID);
   const startAddCommentHandler = () => {
@@ -11,14 +11,14 @@ const Comments = (props) => {
   };
 
   return (
-    <section className={classes.comments}>
+    <section className={classes.editNote}>
       {!isAddingComment && (
         <button className="btn" onClick={startAddCommentHandler}>
           Edit
         </button>
       )}
       {isAddingComment && (
-        <NewCommentForm
+        <EditNoteForm
           text={props.noteBody}
           author={props.title}
           uID={props.uID}
@@ -28,4 +28,4 @@ const Comments = (props) => {
   );
 };
 
-export default Comments;
+export default EditNote;

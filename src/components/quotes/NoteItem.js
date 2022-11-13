@@ -1,8 +1,8 @@
-import classes from "./QuoteItem.module.css";
+import classes from "./NoteItem.module.css";
 import { Link } from "react-router-dom";
 
-const QuoteItem = (props) => {
-  const quoteDate = props.date;
+const NoteItem = (props) => {
+  const noteDate = new Date(props.date).toLocaleDateString();
 
   console.log(props);
 
@@ -13,14 +13,14 @@ const QuoteItem = (props) => {
           <p>{props.title}</p>
         </blockquote>
         <figcaption>
-          {quoteDate ? quoteDate.slice(0, 10) : "No date mentioned"}
+          {noteDate ? noteDate.slice(0, 10) : "No date mentioned"}
         </figcaption>
       </figure>
-      <Link to={`/quotes/${props.id}`} className={classes.btns}>
+      <Link to={`/notes/${props.id}`} className={classes.btns}>
         View Fullscreen
       </Link>
     </li>
   );
 };
 
-export default QuoteItem;
+export default NoteItem;

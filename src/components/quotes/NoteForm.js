@@ -1,16 +1,16 @@
 import { useRef, useState, Fragment } from "react";
 import { Prompt } from "react-router-dom";
-import { quoteContext } from "../../context/context";
-import { useContext } from "react";
+// import { quoteContext } from "../../context/context";
+// import { useContext } from "react";
 
-import Card from "../UI/Cad";
+import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import classes from "./QuoteForm.module.css";
+import classes from "./NoteForm.module.css";
 
-const QuoteForm = (props) => {
-  const ct = useContext(quoteContext);
+const NoteForm = (props) => {
+  // const ct = useContext(quoteContext);
 
-  const changeInitial = ct[3];
+  // const changeInitial = ct[3];
 
   const [isEntering, setIsEntering] = useState(false);
 
@@ -31,15 +31,15 @@ const QuoteForm = (props) => {
 
     // optional: Could validate here
 
-    changeInitial(true);
+    // changeInitial(true);
 
     if (enteredAuthor !== "" && enteredText !== "") {
-      props.onAddQuote({
+      props.onAddNote({
         title: enteredAuthor,
         noteBody: enteredText,
         method: "post",
         id: Math.random(),
-        date: new Date().toLocaleDateString(),
+        date: new Date(),
       });
     } else {
       alert("Invalid Values");
@@ -93,4 +93,4 @@ const QuoteForm = (props) => {
   );
 };
 
-export default QuoteForm;
+export default NoteForm;

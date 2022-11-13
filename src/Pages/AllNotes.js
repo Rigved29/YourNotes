@@ -1,19 +1,19 @@
-import QuoteList from "../components/quotes/QuoteList";
+import NotesList from "../components/quotes/NotesList";
 import { useEffect, useState } from "react";
-import { quoteContext } from "../context/context";
-import { useContext } from "react";
+// import { quoteContext } from "../context/context";
+// import { useContext } from "react";
 import Loader from "../components/UI/LoadingSpinner";
 
-const AllQuotes = () => {
-  console.log(quoteContext);
-  const [ctxQ, ChangeStateCtxQ, initial, changeInitial] =
-    useContext(quoteContext);
-  const [allQuotes, setAllQuotes] = useState([]);
+const AllNotes = () => {
+  // console.log(quoteContext);
+  // const [ctxQ, ChangeStateCtxQ, initial, changeInitial] =
+  //   useContext(quoteContext);
+  const [allNotes, setAllNotes] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getQuotes = async () => {
+    const getNotes = async () => {
       setIsLoading(true);
       try {
         const response = await fetch("http://localhost:8000/");
@@ -24,22 +24,11 @@ const AllQuotes = () => {
         setIsLoading(false);
         let arr;
         if (response.ok) {
-          //   dataArr = Object.values(data);
           arr = resObj.data.notes;
           console.log(arr);
-          setAllQuotes(arr);
+          setAllNotes(arr);
         } else if (!response.ok) {
           throw new Error("Sorry not stable internet connection");
-        }
-
-        const uniqueArr = [...new Set(arr)];
-
-        if (initial) {
-          ChangeStateCtxQ({
-            Quotes: uniqueArr,
-          });
-
-          changeInitial(false);
         }
       } catch (err) {
         setIsLoading(false);
@@ -48,7 +37,7 @@ const AllQuotes = () => {
       }
     };
 
-    getQuotes();
+    getNotes();
 
     const date = new Date("July 20, 2020");
     console.log(
@@ -65,16 +54,16 @@ const AllQuotes = () => {
 
   return (
     <div>
-      {!error && !isLoading && allQuotes.length !== 0 && (
-        <QuoteList quotes={allQuotes} />
+      {!error && !isLoading && allNotes.length !== 0 && (
+        <NotesList notes={allNotes} />
       )}{" "}
-      {/*initial?allQuotes:ctxQ.Quotes*/}
-      {error && !isLoading && allQuotes.length === 0 && (
+      {/*initial?allNotes:ctxQ.Quotes*/}
+      {error && !isLoading && allNotes.length === 0 && (
         <h1>No Notes Found!! Check Your Internet Connection😌😌</h1>
       )}
-      {!error && isLoading && allQuotes.length === 0 && <Loader />}
+      {!error && isLoading && allNotes.length === 0 && <Loader />}
     </div>
   );
 };
 
-export default AllQuotes;
+export default AllNotes;

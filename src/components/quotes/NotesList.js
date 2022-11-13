@@ -1,13 +1,12 @@
 import { Fragment, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Decide from "./Decide";
+import NoteItem from "./NoteItem";
+import classes from "./NotesList.module.css";
 
-import QuoteItem from "./QuoteItem";
-import classes from "./QuoteList.module.css";
-
-const sortQuotes = (quotes, ascdending) => {
-  if (quotes.length !== 0) {
-    return quotes.sort((quoteA, quoteB) => {
+const sortnotes = (notes, ascdending) => {
+  if (notes.length !== 0) {
+    return notes.sort((quoteA, quoteB) => {
       let dateA = quoteA.date;
       let dateB = quoteB.date;
 
@@ -22,12 +21,12 @@ const sortQuotes = (quotes, ascdending) => {
   }
 };
 
-const QuoteList = (props) => {
+const NoteList = (props) => {
   let [initial, setInitial] = useState(true);
-  const [q, setQ] = useState(props.quotes);
+  const [q, setQ] = useState(props.notes);
 
-  if (initial && q !== props.quotes) {
-    setQ(props.quotes);
+  if (initial && q !== props.notes) {
+    setQ(props.notes);
   }
 
   const history = useHistory();
@@ -35,11 +34,11 @@ const QuoteList = (props) => {
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  console.log(queryParams.get("sort"), props.quotes, "yhi h");
+  console.log(queryParams.get("sort"), props.notes, "yhi h");
 
   const isAscending = queryParams.get("sort") === "asc";
 
-  const sortedQuotes = sortQuotes(props.quotes, isAscending);
+  const sortedNotes = sortnotes(props.notes, isAscending);
 
   const changeSortingHandler = () => {
     console.log("click");
@@ -47,21 +46,21 @@ const QuoteList = (props) => {
       `${location.pathname}?sort=${isAscending ? "desc" : "asc"}`
     ); /* in history.push() we can also pass an object having pathname and search as different values*/
     console.log(location);
-    setQ(sortedQuotes);
+    setQ(sortedNotes);
     setInitial(false);
   };
 
   const searchTopicsHandler = (e) => {
-    console.log(e.target.value);
+    console.log(e.target.value.toLowerCase());
     setInitial(false);
-    const filterArr = sortedQuotes.filter((el) =>
-      el.title.includes(e.target.value)
+    const filterArr = sortedNotes.filter((el) =>
+      el.title.toLowerCase().includes(e.target.value.toLowerCase())
     );
     console.log(filterArr);
     setQ(filterArr);
   };
 
-  console.log(q, props.quotes);
+  console.log(q, props.notes);
 
   return (
     <Fragment>
@@ -79,13 +78,13 @@ const QuoteList = (props) => {
 
       <ul className={classes.list}>
         {q.length !== 0 ? (
-          q.map((quote) => (
-            <QuoteItem
-              key={quote._id}
-              id={quote._id}
-              title={quote.title}
-              noteBody={quote.noteBody}
-              date={quote.date}
+          q.map((note) => (
+            <NoteItem
+              key={note._id}
+              id={note._id}
+              title={note.title}
+              noteBody={note.noteBody}
+              date={note.date}
             />
           ))
         ) : (
@@ -96,4 +95,4 @@ const QuoteList = (props) => {
   );
 };
 
-export default QuoteList;
+export default NoteList;

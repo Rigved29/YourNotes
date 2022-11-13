@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import classes from "./NewCommentForm.module.css";
+import classes from "./EditNoteForm.module.css";
 
-const NewCommentForm = (props) => {
+const EditNoteForm = (props) => {
   const [topicState, setTopicState] = useState("");
   const [textState, setTextState] = useState("");
 
@@ -14,7 +14,7 @@ const NewCommentForm = (props) => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    console.log(props.uID);
+
     const submitEdit = async () => {
       const response = await fetch(`http://localhost:8000/${props.uID}/`, {
         method: "PATCH",
@@ -30,16 +30,23 @@ const NewCommentForm = (props) => {
       console.log(response);
       const data = await response.json();
 
+      if (data.status === "success") {
+        history.push("/allnotes");
+      }
+
       console.log(data);
     };
 
     // optional: Could validate here
     if (topicState !== "" && textState !== "") {
       console.log({ topic: topicState, text: textState });
-
-      submitEdit();
+      try {
+        submitEdit();
+      } catch (err) {
+        console.log(err);
+      }
     }
-    history.push("/quotes");
+
     // send comment to server
   };
   console.log(props.author, props.text);
@@ -89,4 +96,4 @@ const NewCommentForm = (props) => {
   );
 };
 
-export default NewCommentForm;
+export default EditNoteForm;
