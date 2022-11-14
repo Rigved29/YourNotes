@@ -1,7 +1,7 @@
-.comments {
+.editNote {
   text-align: center;
 }
 
-.comments > button {
+.editNote > button {
   font-size: 1.25rem;
 }

@@ -1,4 +1,4 @@
-.quote {
+.note {
   background-color: #351a18;
   color: white;
   border-radius: 6px;
@@ -9,11 +9,11 @@
   margin-top: 150px;
 }
 
-.quote p {
+.note p {
   font-size: 1.5rem;
 }
 
-.quote figcaption {
+.note figcaption {
   font-style: normal;
   font-size: 1.5rem;
   text-align: center;
@@ -22,28 +22,28 @@
 
 @media screen and (max-width:500px) {
 
-  .quote{
+  .note{
     margin-top: 5rem;
   }
-  .quote p {
+  .note p {
     font-size: 0.8rem;
   }
-  .quote figcaption {
+  .note figcaption {
     font-size: 1rem;
   }
 }
 
 @media screen and (max-width:400px) {
 
-  .quote{
+  .note{
     margin-top: 9rem;
     padding: 3rem 1.5rem;
     
   }
-  .quote p {
+  .note p {
     font-size: 0.8rem;
   }
-  .quote figcaption {
+  .note figcaption {
     font-size: 1rem;
   }
 }
