@@ -1,4 +1,4 @@
-import NoteForm from "../components/quotes/NoteForm";
+import NoteForm from "../components/notes/NoteForm";
 import { useHistory } from "react-router-dom";
 
 const NewNotes = (props) => {
@@ -6,7 +6,7 @@ const NewNotes = (props) => {
 
   const postdata = async (d, uId) => {
     try {
-      const response = await fetch("http://localhost:8000/addnote", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}addnote`, {
         method: "POST",
         body: JSON.stringify(d),
         headers: {

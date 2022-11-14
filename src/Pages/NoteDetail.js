@@ -1,6 +1,6 @@
 import { Link, Route, useParams, useRouteMatch } from "react-router-dom";
 import EditNote from "../components/edit/Note";
-import HighlightedQuote from "../components/quotes/HighlightedNote";
+import HighlightedQuote from "../components/notes/HighlightedNote";
 import { useEffect, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +15,10 @@ const NotesDetail = (props) => {
   console.log(params.noteId);
 
   console.log(match);
-  console.log(params.noteId, `http://localhost:8000/${params.noteId}/`);
+  console.log(
+    params.noteId,
+    `${process.env.REACT_APP_API_URL}${params.noteId}/`
+  );
 
   // const note = noteArr.find((q) => q.id === Number(params.noteId));
   // console.log(note);
@@ -29,12 +32,15 @@ const NotesDetail = (props) => {
     const getNote = async () => {
       // console.log(quote, uniqueID);
 
-      const response = await fetch(`http://localhost:8000/${params.noteId}/`, {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}${params.noteId}/`,
+        {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+          },
+        }
+      );
       const dataResponse = await response.json();
       console.log(dataResponse.data.note);
       setN(dataResponse.data.note);
@@ -47,10 +53,13 @@ const NotesDetail = (props) => {
     const deleteNote = async () => {
       console.log(uniqueID);
 
-      const response = await fetch(`http://localhost:8000/${params.noteId}/`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}${params.noteId}/`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       // const data = await response.json();
 
       // console.log(data);

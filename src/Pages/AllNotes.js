@@ -1,4 +1,4 @@
-import NotesList from "../components/quotes/NotesList";
+import NotesList from "../components/notes/NotesList";
 import { useEffect, useState } from "react";
 // import { quoteContext } from "../context/context";
 // import { useContext } from "react";
@@ -16,7 +16,9 @@ const AllNotes = () => {
     const getNotes = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/");
+        // "http://localhost:8000/
+
+        const response = await fetch(process.env.REACT_APP_API_URL);
 
         const resObj = await response.json();
 

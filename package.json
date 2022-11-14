@@ -17,7 +17,8 @@
   "scripts": {
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build",
-    "start": "react-scripts start",
+    "start:local": "PORT=3000 env-cmd -f .env.local react-scripts start",
+    "start:dev": "PORT=3000 env-cmd -f .env.development react-scripts start",
     "build": "CI=false && react-scripts build",
 
     "test": "react-scripts test",

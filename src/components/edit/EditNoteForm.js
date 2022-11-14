@@ -16,17 +16,20 @@ const EditNoteForm = (props) => {
     event.preventDefault();
 
     const submitEdit = async () => {
-      const response = await fetch(`http://localhost:8000/${props.uID}/`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          title: topicState,
-          noteBody: textState,
-          date: new Date(),
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}${props.uID}/`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({
+            title: topicState,
+            noteBody: textState,
+            date: new Date(),
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(response);
       const data = await response.json();
 
