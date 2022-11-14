@@ -9,7 +9,6 @@ function App() {
   const getUniqueData = (d, id) => {
     localStorage.setItem(id, d.name);
   };
-  console.log(typeof uniqueId);
 
   return (
     <Layout>

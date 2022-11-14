@@ -34,10 +34,7 @@ const NoteForm = (props) => {
     }
   }
 
-  console.log(props.uniqueId);
-
   const focusHandler = () => {
-    console.log("focus");
     setIsEntering(true);
   };
 

@@ -57,8 +57,6 @@ const NoteList = (props) => {
     setQ(filterArr);
   };
 
-  console.log(q, props.notes);
-
   return (
     <Fragment>
       <div className={classes.sorting}>

@@ -15,12 +15,11 @@ const AllNotes = () => {
 
         const resObj = await response.json();
 
-        console.log(resObj);
         setIsLoading(false);
         let arr;
         if (response.ok) {
           arr = resObj.data.notes;
-          console.log(arr);
+
           setAllNotes(arr);
         } else if (!response.ok) {
           throw new Error("Sorry not stable internet connection");
