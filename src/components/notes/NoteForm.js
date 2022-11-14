@@ -1,23 +1,15 @@
 import { useRef, useState, Fragment } from "react";
 import { Prompt } from "react-router-dom";
-// import { quoteContext } from "../../context/context";
-// import { useContext } from "react";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./NoteForm.module.css";
 
 const NoteForm = (props) => {
-  // const ct = useContext(quoteContext);
-
-  // const changeInitial = ct[3];
-
   const [isEntering, setIsEntering] = useState(false);
 
   const authorInputRef = useRef();
   const textInputRef = useRef();
-
-  console.log(authorInputRef);
 
   const removeFocusHandler = () => {
     setIsEntering(false);
@@ -28,10 +20,6 @@ const NoteForm = (props) => {
 
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
-
-    // optional: Could validate here
-
-    // changeInitial(true);
 
     if (enteredAuthor !== "" && enteredText !== "") {
       props.onAddNote({

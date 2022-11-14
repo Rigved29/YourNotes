@@ -5,7 +5,6 @@ import EditNoteForm from "./EditNoteForm";
 
 const EditNote = (props) => {
   const [isAddingComment, setIsAddingComment] = useState(false);
-  console.log(props.uID);
   const startAddCommentHandler = () => {
     setIsAddingComment(true);
   };

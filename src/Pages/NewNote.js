@@ -15,8 +15,6 @@ const NewNotes = (props) => {
       });
       const data = await response.json();
 
-      console.log(data);
-
       props.sndUniqueData(data, uId);
       if (data.status === "success") {
         history.push("/allnotes");
@@ -27,9 +25,7 @@ const NewNotes = (props) => {
   };
 
   const addNoteHandler = (noteData) => {
-    console.log(noteData);
     postdata(noteData, noteData.id);
-    console.log("sent");
   };
 
   return <NoteForm onAddNote={addNoteHandler} />;

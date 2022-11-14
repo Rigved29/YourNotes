@@ -34,29 +34,26 @@ const NoteList = (props) => {
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  console.log(queryParams.get("sort"), props.notes, "yhi h");
 
   const isAscending = queryParams.get("sort") === "asc";
 
   const sortedNotes = sortnotes(props.notes, isAscending);
 
   const changeSortingHandler = () => {
-    console.log("click");
     history.push(
       `${location.pathname}?sort=${isAscending ? "desc" : "asc"}`
     ); /* in history.push() we can also pass an object having pathname and search as different values*/
-    console.log(location);
+
     setQ(sortedNotes);
     setInitial(false);
   };
 
   const searchTopicsHandler = (e) => {
-    console.log(e.target.value.toLowerCase());
     setInitial(false);
     const filterArr = sortedNotes.filter((el) =>
       el.title.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    console.log(filterArr);
+
     setQ(filterArr);
   };
 

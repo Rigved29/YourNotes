@@ -1,13 +1,8 @@
 import NotesList from "../components/notes/NotesList";
 import { useEffect, useState } from "react";
-// import { quoteContext } from "../context/context";
-// import { useContext } from "react";
 import Loader from "../components/UI/LoadingSpinner";
 
 const AllNotes = () => {
-  // console.log(quoteContext);
-  // const [ctxQ, ChangeStateCtxQ, initial, changeInitial] =
-  //   useContext(quoteContext);
   const [allNotes, setAllNotes] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,10 +11,6 @@ const AllNotes = () => {
     const getNotes = async () => {
       setIsLoading(true);
       try {
-        // "http://localhost:8000/
-
-        console.log(process.env.REACT_APP_API_URL);
-
         const response = await fetch(process.env.REACT_APP_API_URL);
 
         const resObj = await response.json();
@@ -42,18 +33,6 @@ const AllNotes = () => {
     };
 
     getNotes();
-
-    const date = new Date("July 20, 2020");
-    console.log(
-      date,
-      "time:",
-      date.getTime(),
-      "day:",
-      date.getDate(),
-      "year:",
-      date.getFullYear()
-    );
-    console.log(date.toLocaleDateString());
   }, []);
 
   return (
@@ -61,7 +40,6 @@ const AllNotes = () => {
       {!error && !isLoading && allNotes.length !== 0 && (
         <NotesList notes={allNotes} />
       )}{" "}
-      {/*initial?allNotes:ctxQ.Quotes*/}
       {error && !isLoading && allNotes.length === 0 && (
         <h1>No Notes Found!! Check Your Internet Connection😌😌</h1>
       )}

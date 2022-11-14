@@ -30,19 +30,16 @@ const EditNoteForm = (props) => {
           },
         }
       );
-      console.log(response);
+
       const data = await response.json();
 
       if (data.status === "success") {
         history.push("/allnotes");
       }
-
-      console.log(data);
     };
 
     // optional: Could validate here
     if (topicState !== "" && textState !== "") {
-      console.log({ topic: topicState, text: textState });
       try {
         submitEdit();
       } catch (err) {
@@ -52,17 +49,12 @@ const EditNoteForm = (props) => {
 
     // send comment to server
   };
-  console.log(props.author, props.text);
 
-  // setTopicState(props.author);
-  // setTextState(props.text);
   const topicHandler = (e) => {
-    console.log(topicRef.current.value);
     setTopicState(topicRef.current.value);
   };
 
   const textHandler = (e) => {
-    console.log(textRef.current.value);
     setTextState(textRef.current.value);
   };
 

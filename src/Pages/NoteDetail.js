@@ -1,37 +1,21 @@
 import { Link, Route, useParams, useRouteMatch } from "react-router-dom";
 import EditNote from "../components/edit/Note";
 import HighlightedQuote from "../components/notes/HighlightedNote";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const NotesDetail = (props) => {
-  console.log(props.uId);
   const [q, setN] = useState({});
 
   const history = useHistory();
 
   const match = useRouteMatch();
   const params = useParams();
-  console.log(params.noteId);
-
-  console.log(match);
-  console.log(
-    params.noteId,
-    `${process.env.REACT_APP_API_URL}${params.noteId}/`
-  );
-
-  // const note = noteArr.find((q) => q.id === Number(params.noteId));
-  // console.log(note);
-
-  console.log(localStorage.getItem(params.noteId));
 
   const uniqueID = localStorage.getItem(params.noteId);
-  console.log(uniqueID);
 
   useEffect(() => {
     const getNote = async () => {
-      // console.log(quote, uniqueID);
-
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}${params.noteId}/`,
         {
@@ -42,7 +26,7 @@ const NotesDetail = (props) => {
         }
       );
       const dataResponse = await response.json();
-      console.log(dataResponse.data.note);
+
       setN(dataResponse.data.note);
     };
 
@@ -51,8 +35,6 @@ const NotesDetail = (props) => {
 
   const deleteNoteHandler = () => {
     const deleteNote = async () => {
-      console.log(uniqueID);
-
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}${params.noteId}/`,
         {
@@ -60,10 +42,6 @@ const NotesDetail = (props) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      // const data = await response.json();
-
-      // console.log(data);
-      console.log(response);
 
       if (response.status === 204) {
         history.push("/allnotes");
@@ -76,8 +54,6 @@ const NotesDetail = (props) => {
   if (!q) {
     return <h2>No quote Found</h2>;
   }
-
-  console.log(q);
 
   return (
     <div>

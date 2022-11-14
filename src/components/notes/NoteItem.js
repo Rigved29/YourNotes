@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 const NoteItem = (props) => {
   const noteDate = new Date(props.date).toLocaleDateString();
 
-  console.log(props);
-
   return (
     <li className={classes.item}>
       <figure>
