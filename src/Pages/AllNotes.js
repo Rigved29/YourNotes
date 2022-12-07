@@ -11,12 +11,18 @@ const AllNotes = () => {
     const getNotes = async () => {
       setIsLoading(true);
       try {
+        console.log("Yeahh...", process.env.REACT_APP_API_URL);
         const response = await fetch(process.env.REACT_APP_API_URL);
+
+        console.log(response);
 
         const resObj = await response.json();
 
         setIsLoading(false);
         let arr;
+
+        console.log(response, resObj);
+
         if (response.ok) {
           arr = resObj.data.notes;
 
